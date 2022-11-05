@@ -25,7 +25,7 @@ def main():
     manipulateArray(Array, methodIndex)
     print()
     
-    continueCondition = input("Do you wish to continue manipulating the array? (y/n): ")
+    continueCondition = input("Do you wish to continue manipulating the same array? (y/n): ")
     if continueCondition == "y":
         main()
     else: 
@@ -41,23 +41,44 @@ def manipulateArray(array, method_index):
             print("The value has been added")
             print(f"\nThis is the new Array: {array}")
             return
+
         case "2":
             insertIndex = int(input("Enter the index you want to insert to: "))
             insertElement = int(input("Enter element:"))
             array.insert(insertIndex, insertElement)
             print(f"\nThis is the new Array: {array}")
+            return
+
+        case "3":
+            modifyIndex = int(input("Enter the index you want to modify: "))
+            modifyValue = int(input("Enter element:"))
+            array[modifyIndex] = modifyValue
+            print(f"\nThis is the new Array: {array}")
+            return
+
         case "4":
             removeElement = int(input("Enter element you want to delete:"))
             array.remove(removeElement)
             print(f"\nThis is the new Array: {array}")
             return
+
+        case "5":
+            array.sort()
+            print(f"\nThis is the new Array: {array}")
+            return
+
+        case "6":
+            array.sort(reverse=True)
+            print(f"\nThis is the new Array: {array}")
+            return
+
         case "7":
             array = [2, 21, 7, 140, 80, 92, 12, 119, 350, 43]
-            print(f"\nThis is the new Array: {array}")
+            print(f"\nAlright we're back to our default Array: {array}")
             return
         
         case _:
-            return "Something's wrong with the internet"
+            return 
 
 # program start
 main()
